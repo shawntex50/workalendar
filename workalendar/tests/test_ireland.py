@@ -24,8 +24,8 @@ class IrelandTest(GenericCalendarTest):
         holidays = self.cal.holidays_set(2024)
         self.assertIn(date(2024, 1, 1), holidays)    # New Year
         self.assertIn(date(2024, 2, 5), holidays)    # St. Brigid's Day
-        self.assertIn(date(2024, 3, 17), holidays)   # Saint Patrick's Day
-        self.assertIn(date(2024, 3, 17), holidays)   # Saint Patrick's Day substitute
+        self.assertIn(date(2024, 3, 17), holidays)   # St Patrick's Day
+        self.assertIn(date(2024, 3, 17), holidays)   # St Patrick's Day sub
         self.assertIn(date(2024, 4, 1), holidays)    # Easter Monday
         self.assertIn(date(2024, 5, 6), holidays)    # May Day
         self.assertIn(date(2024, 6, 3), holidays)    # June Holiday

@@ -1,5 +1,5 @@
 from datetime import date, timedelta
-from ..core import WesternCalendar, MON
+from ..core import WesternCalendar, MON, FRI
 from ..registry_tools import iso_register
 
 
@@ -24,6 +24,19 @@ class Ireland(WesternCalendar):
             "August Holiday"
         )
 
+    def get_st_brigids_day(self, year):
+        st_brigids_day = date(year, 2, 1)
+        if st_brigids_day.weekday() == FRI:
+            return (
+                Ireland.get_nth_weekday_in_month(year, 2, FRI),
+                "St. Brigid's Day"
+            )
+        else:
+            return (
+                Ireland.get_nth_weekday_in_month(year, 2, MON),
+                "St. Brigid's Day"
+            )
+
     def get_variable_days(self, year):
         self.include_whit_monday = (year <= 1973)
         days = super().get_variable_days(year)
@@ -45,6 +58,8 @@ class Ireland(WesternCalendar):
 
         days.append(self.get_june_holiday(year))
         days.append(self.get_august_holiday(year))
+        if year >= 2023:
+            days.append(self.get_st_brigids_day(year))
 
         if year >= 1977:
             days.append((

@@ -1509,6 +1509,12 @@ class RhodeIslandTest(NoPresidentialDay, ElectionDayEvenYears,
         holidays = self.cal.holidays_set(2015)
         self.assertIn(date(2015, 8, 10), holidays)  # Victory Day
 
+    def test_state_year_2024(self):
+        holidays = self.cal.holidays_set(2024)
+        self.assertIn(date(2024, 9, 2), holidays)   # Victory Over Japan Day
+
+
+
 
 class SouthCarolinaTest(NoColumbus, UnitedStatesTest):
     cal_class = SouthCarolina

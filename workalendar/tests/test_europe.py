@@ -976,6 +976,15 @@ class IrelandTest(GenericCalendarTest):
         self.assertIn(date(1977, 10, 31), holidays_1977)     # October Hol
         self.assertIn(date(1978, 10, 30), holidays_1978)
 
+    def test_st_brigids_day(self):
+        holidays_2022 = self.cal.holidays_set(2022)
+        holidays_2023 = self.cal.holidays_set(2023)
+        holidays_2030 = self.cal.holidays_set(2030)
+        self.assertNotIn(date(2022, 2, 7), holidays_2022)
+        self.assertIn(date(2023, 2, 6), holidays_2023)
+        self.assertNotIn(date(2023, 2, 1), holidays_2023)
+        self.assertIn(date(2030, 2, 1), holidays_2030)
+        self.assertNotIn(date(2030, 2, 4), holidays_2022)
 
 class ItalyTest(GenericCalendarTest):
     cal_class = Italy

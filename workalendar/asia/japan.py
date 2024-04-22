@@ -38,7 +38,7 @@ class Japan(Calendar):
 
         new_years_day = date(year, 1, 1)
         if new_years_day.weekday() == SUN:
-            days.append((new_years_day, "New Years Day Observed"))
+            days.append((date(year, 1, 2), "New Years Day Observed"))
 
         childrens_day = date(year, 5, 5)
         if childrens_day.weekday() == SUN:

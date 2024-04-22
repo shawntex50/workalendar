@@ -27,8 +27,31 @@ class Japan(Calendar):
         Fixed holidays for Japan.
         """
         days = super().get_fixed_holidays(year)
+        # Some Holidays in Japan are observed the following day,
+        # if the holiday falls on a Sunday
         if year >= 2016 and year != 2021:
-            days.append((date(year, 8, 11), "Mountain Day"))
+            # days.append((date(year, 8, 11), "Mountain Day"))
+            mountain_day = date(year, 8, 11)
+            days.append((mountain_day, "Mountain Day"))
+            if mountain_day.weekday() == SUN:
+                days.append((date(year, 8, 12), "Mountain Day Observed"))
+
+        new_years_day = date(year, 1, 1)
+        if new_years_day.weekday() == SUN:
+            days.append((new_years_day, "New Years Day Observed"))
+
+        childrens_day = date(year, 5, 5)
+        if childrens_day.weekday() == SUN:
+            days.append((date(year, 5, 6), "Children's Day Observed"))
+
+        foundation_day = date(year, 2, 11)
+        if foundation_day.weekday() == SUN:
+            days.append((date(year, 2, 12), "Foundation Day Observed"))
+
+        culture_day = date(year, 11, 3)
+        if culture_day.weekday() == SUN:
+            days.append((date(year, 11, 4), "Culture Day Observed"))
+
         # Change in Emperor
         if year < 2019:
             days.append((date(year, 12, 23), "The Emperor's Birthday"))
@@ -40,8 +63,6 @@ class Japan(Calendar):
                 (date(year, 4, 30), "Coronation Day"),
                 (date(year, 5, 1), "Coronation Day"),
                 (date(year, 5, 2), "Coronation Day"),
-                (date(year, 5, 6), "Children's Day Observed"),
-                (date(year, 8, 12), "Mountain Day Observed"),
                 (date(year, 10, 22), "Enthronement Ceremony Day"),
                 (date(year, 11, 4), "Culture Day Observed"),
             ])
@@ -90,6 +111,14 @@ class Japan(Calendar):
             health_and_sport_label = "Health and Sports Day"
         else:
             health_and_sport_label = "Sports Day"
+
+        vernal_equinox = equinoxes[0]
+        if vernal_equinox.weekday() == SUN:
+            days.append((self.find_following_working_day(vernal_equinox), "Vernal Equinox Observed"))
+
+        autumnal_equinox = equinoxes[1]
+        if autumnal_equinox.weekday() == SUN:
+            days.append((self.find_following_working_day(autumnal_equinox), "Autumnal Equinox Observed"))
 
         days.extend([
             (coming_of_age_day, 'Coming of Age Day'),

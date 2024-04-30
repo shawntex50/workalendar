@@ -433,6 +433,33 @@ class JapanTest(GenericCalendarTest):
         holidays_dict = dict(holidays)
         self.assertEqual(holidays_dict[date(2021, 7, 23)], "Sports Day")
 
+    def test_year_2023(self):
+        holidays = self.cal.holidays_set(2023)
+        self.assertIn(date(2023, 1, 2), holidays)  # New Year's Day Observed
+        self.assertIn(date(2023, 7, 17), holidays)  # Marine Day
+        self.assertIn(date(2023, 10, 9), holidays)  # Sports Day
+        self.assertIn(date(2023, 8, 11), holidays)  # Mountain Day
+
+    def test_year_2024(self):
+        holidays = self.cal.holidays_set(2024)
+        self.assertIn(date(2024, 2, 12), holidays)  # Foundation Day Observed
+        self.assertIn(date(2024, 5, 6), holidays)  # Children's Day Observed
+        self.assertIn(date(2024, 9, 23), holidays)  # Autumnal Equinox Observed
+        self.assertIn(date(2024, 7, 15), holidays)  # Marine Day
+        self.assertIn(date(2024, 10, 14), holidays)  # Sports Day
+        self.assertIn(date(2024, 8, 11), holidays)  # Mountain Day
+        self.assertIn(date(2024, 8, 12), holidays)  # Mountain Day Observed
+        self.assertIn(date(2024, 11, 4), holidays)  # Culture Day Observed
+
+    def test_year_2025(self):
+        holidays = self.cal.holidays_set(2025)
+        self.assertIn(date(2025, 7, 21), holidays)  # Marine Day
+        self.assertIn(date(2025, 10, 13), holidays)  # Sports Day
+        self.assertIn(date(2025, 2, 24), holidays)  # Emperor's Birthday Observed
+        self.assertIn(date(2025, 5, 6), holidays)  # Children's Day Observed
+        self.assertIn(date(2025, 11, 24), holidays)  # Labour Thanksgiving Day Observed
+
+
 
 class JapanBankTest(GenericCalendarTest):
     cal_class = JapanBank

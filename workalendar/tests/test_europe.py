@@ -43,7 +43,7 @@ from ..europe import (
     Ukraine,
     UnitedKingdom,
     UnitedKingdomNorthernIreland,
-    EuropeanCentralBank,
+    EuropeanCentralBank, BosniaAndHerzegovina,
 )
 # Tests dedicated to Netherlands School holidays
 from ..europe.netherlands import (
@@ -107,6 +107,47 @@ class BelarusTest(GenericCalendarTest):
         self.assertIn(date(2020, 7, 3), holidays)  # Republic Day
         self.assertIn(date(2020, 11, 7), holidays)  # October Revolution Day
         self.assertIn(date(2020, 12, 25), holidays)  # Christmas (Catholic)
+
+
+class BosniaAndHerzegovinaTest(GenericCalendarTest):
+    cal_class = BosniaAndHerzegovina
+
+    def test_year_2024(self):
+        holidays = self.cal.holidays_set(2024)
+        self.assertIn(date(2024, 1, 1), holidays)  # New Years day
+        self.assertIn(date(2024, 1, 2), holidays)  # New Years day 2
+        self.assertIn(date(2024, 3, 1), holidays)  # Independence Day
+        self.assertIn(date(2024, 5, 1), holidays)  # Labor Day
+        self.assertIn(date(2024, 5, 2), holidays)  # Labor Day day 2
+        self.assertIn(date(2024, 11, 25), holidays)  # Statehood Day
+        self.assertIn(date(2024, 12, 25), holidays)  # Christmas Day
+        self.assertIn(date(2024, 12, 26), holidays)  # Boxing Day
+
+    def test_year_2027(self):
+        holidays = self.cal.holidays_set(2027)
+        self.assertIn(date(2027, 1, 1), holidays)  # New Years day
+        self.assertIn(date(2027, 1, 2), holidays)  # New Years day 2
+        self.assertIn(date(2027, 3, 1), holidays)  # Independence Day
+        self.assertIn(date(2027, 5, 1), holidays)  # Labor Day
+        self.assertIn(date(2027, 5, 3), holidays)  # Labor Day day 2
+        self.assertIn(date(2027, 11, 25), holidays)  # Statehood Day
+        self.assertIn(date(2027, 12, 25), holidays)  # Christmas Day
+        self.assertIn(date(2027, 12, 26), holidays)  # Boxing Day
+
+    def test_year_2028(self):
+        holidays = self.cal.holidays_set(2028)
+        self.assertIn(date(2028, 1, 1), holidays)  # New Years day
+        self.assertIn(date(2028, 1, 2), holidays)  # New Years day 2
+        self.assertIn(date(2028, 1, 3), holidays)  # New Years day shift
+        self.assertIn(date(2028, 3, 1), holidays)  # Independence Day
+        self.assertIn(date(2028, 5, 1), holidays)  # Labor Day
+        self.assertIn(date(2028, 5, 2), holidays)  # Labor Day day 2
+        self.assertIn(date(2028, 11, 25), holidays)  # Statehood Day
+        self.assertIn(date(2028, 12, 25), holidays)  # Christmas Day
+        self.assertIn(date(2028, 12, 26), holidays)  # Boxing Day
+
+
+
 
 
 class BulgariaTest(GenericCalendarTest):

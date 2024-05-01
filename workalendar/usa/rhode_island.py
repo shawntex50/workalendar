@@ -12,10 +12,12 @@ class RhodeIsland(UnitedStates):
 
     def get_variable_days(self, year):
         days = super().get_variable_days(year)
-        days.append(
-            (self.get_nth_weekday_in_month(year, 8, MON, 2), "Victory Day")
-        )
-        vj_day = date(year, 9, 2)
-        days.append((vj_day, "Victory over Japan Day"))
+        if year >= 1948:
+            days.append(
+                (self.get_nth_weekday_in_month(year, 8, MON, 2), "Victory Day")
+            )
+
+            vj_day = date(year, 9, 2)
+            days.append((vj_day, "Victory over Japan Day"))
 
         return days

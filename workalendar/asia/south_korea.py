@@ -30,8 +30,6 @@ class SouthKorea(ChineseNewYearCalendar):
             (ChineseNewYearCalendar.lunar(year, 8, 16), "Midautumn Festival"),
         ])
 
-        if year == 2023:
-            seollal_2023 = ChineseNewYearCalendar.lunar(2023, 1, 1)
-            seollal_2023_gregorian = ChineseNewYearCalendar.from_lunar(year, seollal_2023[1], seollal_2023[2])
-            days.append((seollal_2023_gregorian, "Seollal (Korean New Year)"))
+        #if year == 2023:
+        days.append((ChineseNewYearCalendar.lunar(year, 1, 1), "Seollal (Korean New Year)"))
         return days

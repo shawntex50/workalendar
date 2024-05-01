@@ -1,6 +1,7 @@
 from .austria import Austria
 from .belarus import Belarus
 from .belgium import Belgium
+from .bosnia_and_herzegovina import BosniaAndHerzegovina
 from .bulgaria import Bulgaria
 from .cayman_islands import CaymanIslands
 from .croatia import Croatia

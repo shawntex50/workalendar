@@ -52,11 +52,33 @@ class Japan(Calendar):
         if culture_day.weekday() == SUN:
             days.append((date(year, 11, 4), "Culture Day Observed"))
 
+        showa_day = date(year, 4, 29)
+        if showa_day.weekday() == SUN:
+            days.append((date(year, 4, 30), "Showa Day Observed"))
+
+        constitution_day = date(year, 5, 3)
+        if constitution_day.weekday() == SUN:
+            days.append((date(year, 5, 6), "Constitution Memorial Day Observed"))
+
+        greenery_day = date(year, 5, 4)
+        if greenery_day.weekday() == SUN:
+            days.append((date(year, 5, 6), "Greenery Day Observed"))
+
+        labour_day = date(year, 11, 23)
+        if labour_day.weekday() == SUN:
+            days.append((date(year, 11, 24), "Labour Thanksgiving Day Observed"))
+
         # Change in Emperor
         if year < 2019:
-            days.append((date(year, 12, 23), "The Emperor's Birthday"))
+            emperors_birthday = date(year, 12, 23), "The Emperor's Birthday"
+            days.append((emperors_birthday, "The Emperor's Birthday"))
+            if emperors_birthday.weekday() == SUN:
+                days.append((date(year, 12, 24), "The Emperor's Birthday Observed"))
         if year > 2019:
-            days.append((date(year, 2, 23), "The Emperor's Birthday"))
+            emperors_birthday = date(year, 2, 23)
+            days.append((emperors_birthday, "The Emperor's Birthday"))
+            if emperors_birthday.weekday() == SUN:
+                days.append((date(year, 2, 24), "The Emperor's Birthday Observed"))
         # Lots of adjustments for new emperor
         if year == 2019:
             days.extend([

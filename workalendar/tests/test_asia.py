@@ -651,6 +651,10 @@ class SouthKoreaTest(GenericCalendarTest):
         self.assertIn(date(2013, 9, 19), holidays)
         self.assertIn(date(2013, 9, 20), holidays)
 
+        # Seollal (Korean New Year)
+        self.assertIn(date(2013, 2, 10), holidays)
+
+
 
 class TaiwanTest(GenericCalendarTest):
 

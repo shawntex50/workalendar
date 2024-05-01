@@ -6,7 +6,7 @@ from . import GenericCalendarTest
 from ..asia import (
     HongKong, HongKongBank,
     Japan, JapanBank, Qatar, Singapore,
-    SouthKorea, Taiwan, Malaysia, China, Israel, Philippines, Kazakhstan
+    SouthKorea, Taiwan, Malaysia, China, Israel, Philippines, Kazakhstan, India
 )
 from ..asia.china import holidays as china_holidays
 from ..exceptions import CalendarError
@@ -1003,3 +1003,41 @@ class KazakhstanTest(GenericCalendarTest):
         self.assertIn(date(2020, 12, 1), holidays)  # First President Day
         self.assertIn(date(2020, 12, 16), holidays)  # Independence Day
         self.assertIn(date(2020, 12, 17), holidays)  # Independence Day
+
+
+class IndiaTest(GenericCalendarTest):
+    cal_class = India
+
+    def test_year_2021(self):
+        holidays = self.cal.holidays_set(2021)
+
+        self.assertIn(date(2021, 1, 26), holidays)  # Republic Day
+        self.assertIn(date(2021, 8, 15), holidays)  # Independence Day
+        self.assertIn(date(2021, 10, 2), holidays)  # Gandhi Jayanti
+        self.assertIn(date(2021, 1, 1), holidays)  # New Year's Day
+        self.assertIn(date(2021, 1, 14), holidays)  # Makar Sankranti / Pongal
+        self.assertIn(date(2021, 5, 1), holidays)  # Labour Day / May Day
+        self.assertIn(date(2021, 10, 26), holidays)  # Diwali
+        self.assertIn(date(2021, 12, 25), holidays)  # Christmas
+
+    def test_year_2020(self):
+        holidays = self.cal.holidays_set(2020)
+        self.assertIn(date(2020, 1, 26), holidays)  # Republic Day
+        self.assertIn(date(2020, 8, 15), holidays)  # Independence Day
+        self.assertIn(date(2020, 10, 2), holidays)  # Gandhi Jayanti
+        self.assertIn(date(2020, 1, 1), holidays)  # New Year's Day
+        self.assertIn(date(2020, 1, 14), holidays)  # Makar Sankranti / Pongal
+        self.assertIn(date(2020, 5, 1), holidays)  # Labour Day / May Day
+        self.assertIn(date(2020, 10, 26), holidays)  # Diwali
+        self.assertIn(date(2020, 12, 25), holidays)  # Christmas
+
+    def test_year_2019(self):
+        holidays = self.cal.holidays_set(2019)
+        self.assertIn(date(2019, 1, 26), holidays)  # Republic Day
+        self.assertIn(date(2019, 8, 15), holidays)  # Independence Day
+        self.assertIn(date(2019, 10, 2), holidays)  # Gandhi Jayanti
+        self.assertIn(date(2019, 1, 1), holidays)  # New Year's Day
+        self.assertIn(date(2019, 1, 14), holidays)  # Makar Sankranti / Pongal
+        self.assertIn(date(2019, 5, 1), holidays)  # Labour Day / May Day
+        self.assertIn(date(2019, 10, 26), holidays)  # Diwali
+        self.assertIn(date(2019, 12, 25), holidays)  # Christmas
